@@ -24,6 +24,10 @@ public class AuthManagerAndProvider {
         this.playerRepository = playerRepository;
     }
 
+    @Bean
+    public AuthenticationManager authenticationManager() {
+        return new ProviderManager(List.of(daoAuthenticationProvider()));
+    }
 
     @Bean
     public AuthenticationProvider daoAuthenticationProvider(){
@@ -31,11 +35,6 @@ public class AuthManagerAndProvider {
         provider.setUserDetailsService(userDetailsService());
         provider.setPasswordEncoder(passwordEncoder());
         return provider;
-    }
-
-    @Bean
-    public AuthenticationManager authenticationManager() {
-        return new ProviderManager(List.of(daoAuthenticationProvider()));
     }
 
     @Bean
