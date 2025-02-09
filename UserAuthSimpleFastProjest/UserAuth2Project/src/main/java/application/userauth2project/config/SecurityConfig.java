@@ -20,13 +20,13 @@ public class SecurityConfig {
         this.jwtAuthenticationCustomFilter = jwtAuthenticationCustomFilter;
     }
 
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//        http.csrf(csrfConfigurer -> csrfConfigurer.disable())
-//                .authorizeHttpRequests(request-> request.anyRequest().authenticated())
-//                .addFilterBefore(jwtAuthenticationCustomFilter, UsernamePasswordAuthenticationFilter.class);
-//        return http.build();
-//    }
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.csrf(csrfConfigurer -> csrfConfigurer.disable())
+                .authorizeHttpRequests(request-> request.anyRequest().authenticated())
+                .addFilterBefore(jwtAuthenticationCustomFilter, UsernamePasswordAuthenticationFilter.class);
+        return http.build();
+    }
 
 //    @Bean
 //    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -37,14 +37,14 @@ public class SecurityConfig {
 //    }
 
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrfConfigurer -> csrfConfigurer.disable())
-                .authorizeHttpRequests(request-> request.anyRequest().authenticated())
-                .formLogin(form -> form.disable())
-                .logout(logout -> logout.disable());
-        return http.build();
-    }
+//    @Bean
+//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//        http.csrf(csrfConfigurer -> csrfConfigurer.disable())
+//                .authorizeHttpRequests(request-> request.anyRequest().authenticated())
+//                .formLogin(form -> form.disable())
+//                .logout(logout -> logout.disable());
+//        return http.build();
+//    }
 
 //    @Bean
 //    public UserDetailsService userDetailsService() {

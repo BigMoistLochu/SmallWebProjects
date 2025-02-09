@@ -1,9 +1,12 @@
 package application.userauth2project.config;
 
+import application.userauth2project.models.Player;
+import application.userauth2project.services.PlayerService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,15 +18,19 @@ import java.io.IOException;
 @Component
 public class JwtAuthenticationCustomFilter extends OncePerRequestFilter {
 
+    private final PlayerService playerService;
+
+    public JwtAuthenticationCustomFilter(PlayerService playerService) {
+        this.playerService = playerService;
+    }
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        SecurityContextHolder.getContext().getAuthentication();
-//        SecurityContextHolder.getContext().setAuthentication();
-        //Authentication
-//        UsernamePasswordAuthenticationToken userTokenToAuth = new UsernamePasswordAuthenticationToken(
-//                userToAuth.getUsername(),
-//                null
-//                ,userToAuth.getAuthorities());
+
+        Player player = playerService.getPlayerByUsername("Konradedk8872");
+        UsernamePasswordAuthenticationToken userTokenToAuth = new UsernamePasswordAuthenticationToken(player.getUsername(), null,player.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(userTokenToAuth);
+
         System.out.println("SIEMANKO!!!!");
         filterChain.doFilter(request,response);
     }
