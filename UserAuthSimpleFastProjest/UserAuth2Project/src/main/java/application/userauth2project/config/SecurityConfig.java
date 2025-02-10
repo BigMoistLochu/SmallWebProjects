@@ -23,7 +23,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(csrfConfigurer -> csrfConfigurer.disable())
-                .authorizeHttpRequests(request-> request.anyRequest().authenticated())
+                .cors(cors -> cors.disable())
+                .authorizeHttpRequests(request-> request
+                        .requestMatchers("/user/auth/login")
+                        .permitAll()
+                        .anyRequest().authenticated())
                 .addFilterBefore(jwtAuthenticationCustomFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
