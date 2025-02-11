@@ -1,17 +1,20 @@
 function handleClick() {
     let loginValue = document.getElementById("user_email").value;
     let passwordValue = document.getElementById("user_password").value;
+    console.log(loginValue);
 
     let user = {
-        username: loginValue,
+        email: loginValue,
         password: passwordValue
     };
 
-    fetch("http://localhost:8080/auth/login", {
+    console.log(user);
+    console.log(JSON.stringify(user));
+
+    fetch("http://localhost:8080/user/auth/login", {
         method: "POST",
         headers: {
-            'Content-Type': 'application/json',
-            'Origin': 'http://localhost:3000' // Dodanie nagłówka Origin
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(user)
     })
