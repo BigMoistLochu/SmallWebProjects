@@ -1,0 +1,8 @@
+#formularz{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Pełna wysokość ekranu */
+    background-color: #242424; /* Ciemne tło */
+    color: white;
+}

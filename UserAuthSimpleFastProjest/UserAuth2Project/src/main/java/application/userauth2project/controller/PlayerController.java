@@ -15,10 +15,9 @@ public class PlayerController {
 
     @PostMapping("/auth/login")
     public String authByLogin(@RequestBody LoginRequestDTO loginRequest){
-
-        System.out.println(loginRequest.getPassword());
         System.out.println(loginRequest.getEmail());
-        return "JWT";
+        System.out.println(loginRequest.getPassword());
+        return "JWTt";
     }
 
 }
