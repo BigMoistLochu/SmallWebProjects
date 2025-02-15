@@ -24,3 +24,17 @@ export function getJWT(){
 export function setJWT(token){
     localStorage.setItem('myData', token);
 }
+
+
+export const obietnica = new Promise((resolve, reject) => {
+    console.log("Zaczalem operacje juz teraz bo obiekt zostal utworzony");
+    setTimeout(() => {
+        console.log("to pojawi sie po 10 sekundach zeby ustawic resolve w obiekcie promise");
+        let sukces = true; // Możemy zmienić na false, aby zobaczyć, co się stanie
+        if (sukces) {
+            return resolve("Operacja zakończona sukcesem! 🎉");
+        } else {
+            return reject("Coś poszło nie tak! ❌");
+        }
+    }, 10000);
+});
