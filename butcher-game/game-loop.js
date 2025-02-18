@@ -1,26 +1,24 @@
 import { board, drawBoard } from './game-board.js';
-
 let lastTime = 0; // Czas poprzedniej klatki
-console.log(board[0][0]);
-drawBoard();
-// function gameLoop(timestamp) { // timestamp przekazywany automatycznie
-//     let deltaTime = timestamp - lastTime; // Obliczanie różnicy czasu
-//     lastTime = timestamp; // Aktualizacja czasu ostatniej klatki
 
-//     update(deltaTime); // Aktualizacja logiki gry
-//     draw(); // Renderowanie
+function gameLoop(timestamp) { // timestamp przekazywany automatycznie
+    let deltaTime = timestamp - lastTime; // Obliczanie różnicy czasu
+    lastTime = timestamp; // Aktualizacja czasu ostatniej klatki
 
-//     requestAnimationFrame(gameLoop); // Kolejna klatka
-// }
+    update(deltaTime); // Aktualizacja logiki gry
+    draw(); // Renderowanie
 
-// // Funkcje gry
-// function update(deltaTime) {
-//     console.log("Update: ", deltaTime); // Możesz tu dodać ruch postaci, fizykę itp.
-// }
+    requestAnimationFrame(gameLoop); // Kolejna klatka
+}
 
-// function draw() {
-//     console.log("Renderowanie Obiektow np graczy itp"); // Tu możesz rysować na canvasie
-// }
+// Funkcje gry
+function update(deltaTime) {
+    console.log("Update: ", deltaTime); // Możesz tu dodać ruch postaci, fizykę itp.
+}
 
-// // Start gry
-// requestAnimationFrame(gameLoop); // Uruchomienie pętli
+function draw() {
+    console.log("Renderowanie Obiektow np graczy itp"); // Tu możesz rysować na canvasie
+}
+
+// Start gry
+requestAnimationFrame(gameLoop); // Uruchomienie pętli
