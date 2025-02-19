@@ -1,27 +1,39 @@
-const TILE_SIZE = 32;
-const MAP_WIDTH = 10;
-const MAP_HEIGHT = 10;
+const gameBoardDiv  = document.getElementById("game-board");
 export const board = [
+    [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 1],
+    [1, 0, 1, 0, 1, 0 , 1 , 1, 0, 0],
+    [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 1],
+    [1, 0, 1, 0, 1, 0 , 1 , 1, 0, 0],
     [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 0],
     [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 0],
+    [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 1],
+    [1, 0, 1, 0, 1, 0 , 1 , 1, 0, 0],
     [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 0],
     [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 0]
 ];
 
-
+var flag = true;
 
 export function drawBoard(){
-    drawPlayer();
+    if(!flag) return;
+    for (let i = 0; i < board.length; i++) {
+        for (let j = 0; j < board[i].length; j++) {
+            if(board[i][j] === 0) drawTileGrass();
+            if(board[i][j] === 1) drawTileTree();
+        }
+    }
+
+    flag = false;
 }
 
-function drawPlayer(){
-    var div = document.createElement('div');
-    div.style.width = '50px';   // Szerokość 300px
-    div.style.height = '50px';  // Wysokość 200px
-    div.style.backgroundColor = 'lightblue';  // Tło na niebiesko
-    div.style.border = '2px solid black'; // Obramowanie czarne
-    
-    var boardDiv = document.getElementById("game-board");
-    
-    boardDiv.appendChild(div);
+function drawTileGrass(){
+    var grassTileDiv = document.createElement('div');
+    grassTileDiv.className = "tile-grass";
+    gameBoardDiv.appendChild(grassTileDiv);
+}
+
+function drawTileTree(){
+    var treeTileDiv = document.createElement('div');
+    treeTileDiv.className = "tile-tree";
+    gameBoardDiv.appendChild(treeTileDiv);
 }

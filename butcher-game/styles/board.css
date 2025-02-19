@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+}
+
+#game-board{
+    display: grid;
+    grid-template-rows: 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px;
+    grid-template-columns: 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px;
+}
+
+
+.tile-grass{
+    background-color: rgba(60, 179, 113, 0.5); /* MediumSeaGreen */
+    height: 32px;
+    width: 32px;
+}
+
+.tile-tree{
+    background-color: rgba(139, 69, 19, 0.8); /* SaddleBrown */
+    height: 32px;
+    width: 32px;
+}
