@@ -1,5 +1,7 @@
 const gameBoardDiv  = document.getElementById("game-board");
-export const board = [
+var isBoardRendered = false;
+
+const board = [
     [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 1],
     [1, 0, 1, 0, 1, 0 , 1 , 1, 0, 0],
     [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 1],
@@ -12,18 +14,17 @@ export const board = [
     [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 0]
 ];
 
-var flag = true;
 
 export function drawBoard(){
-    if(!flag) return;
+    if(isBoardRendered) return;
+
     for (let i = 0; i < board.length; i++) {
         for (let j = 0; j < board[i].length; j++) {
             if(board[i][j] === 0) drawTileGrass();
             if(board[i][j] === 1) drawTileTree();
         }
     }
-
-    flag = false;
+    isBoardRendered = true;
 }
 
 function drawTileGrass(){

@@ -1,4 +1,4 @@
-import { board, drawBoard } from './game-board.js';
+import { drawBoard } from './game-board.js';
 
 
 function gameLoop(timestamp) { // timestamp przekazywany automatycznie
@@ -9,12 +9,11 @@ function gameLoop(timestamp) { // timestamp przekazywany automatycznie
 }
 
 function update() {
-    console.log("Update: "); // Możesz tu dodać ruch postaci
+    console.log("Update ruchu postaci"); // Możesz tu dodać ruch postaci
 }
 
 function draw() {
     drawBoard();
-    console.log("Renderowanie Obiektow np graczy itp"); // Tu możesz rysować
 }
 
 // Start gry
