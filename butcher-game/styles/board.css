@@ -8,8 +8,8 @@
 
 #game-board{
     display: grid;
-    grid-template-rows: 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px;
-    grid-template-columns: 32px 32px 32px 32px 32px 32px 32px 32px 32px 32px;
+    grid-template-rows: repeat(10, 32px);
+    grid-template-columns: repeat(10, 32px);
 }
 
 
@@ -29,4 +29,10 @@
 background-color: rgba(112, 128, 144, 0.5);
     height: 32px;
     width: 32px;
+}
+
+.player {
+    background-color: rgba(30, 30, 100, 0.1); /* MediumSeaGreen */
+    grid-row: 1;
+    grid-column: 1;
 }
