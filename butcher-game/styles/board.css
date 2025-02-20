@@ -14,13 +14,19 @@
 
 
 .tile-grass{
-    background-color: rgba(60, 179, 113, 0.5); /* MediumSeaGreen */
+    background-color: rgba(60, 179, 113, 0.5);
     height: 32px;
     width: 32px;
 }
 
 .tile-tree{
-    background-color: rgba(139, 69, 19, 0.8); /* SaddleBrown */
+    background-color: rgba(139, 69, 19, 0.8);
+    height: 32px;
+    width: 32px;
+}
+
+.tile-stone{
+background-color: rgba(112, 128, 144, 0.5);
     height: 32px;
     width: 32px;
 }

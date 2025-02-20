@@ -2,16 +2,16 @@ const gameBoardDiv  = document.getElementById("game-board");
 var isBoardRendered = false;
 
 const board = [
-    [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 1],
-    [1, 0, 1, 0, 1, 0 , 1 , 1, 0, 0],
-    [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 1],
-    [1, 0, 1, 0, 1, 0 , 1 , 1, 0, 0],
-    [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 0],
-    [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 0],
-    [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 1],
-    [1, 0, 1, 0, 1, 0 , 1 , 1, 0, 0],
-    [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 0],
-    [1, 0, 0, 0, 1, 0 , 1 , 1, 0, 0]
+    [2 , 2 , 2 , 2 , 2, 2 , 2 , 2, 2 , 2],
+    [2 , 0 , 1 , 0 , 1, 0 , 1 , 1, 0 , 2],
+    [2 , 0 , 0 , 0 , 1, 0 , 1 , 1, 0 , 2],
+    [2 , 0 , 1 , 0 , 1, 0 , 1 , 1, 0 , 2],
+    [2 , 0 , 0 , 0 , 1, 0 , 1 , 1, 0 , 2],
+    [2 , 0 , 0 , 0 , 1, 0 , 1 , 1, 0 , 2],
+    [2 , 0 , 0 , 0 , 1, 0 , 1 , 1, 0 , 2],
+    [2 , 0 , 1 , 0 , 1, 0 , 1 , 1, 0 , 2],
+    [2 , 0 , 0 , 0 , 1, 0 , 1 , 1, 0 , 2],
+    [2 , 2 , 2 , 2 , 2, 2 , 2 , 2 , 2 ,2]
 ];
 
 
@@ -22,19 +22,26 @@ export function drawBoard(){
         for (let j = 0; j < board[i].length; j++) {
             if(board[i][j] === 0) drawTileGrass();
             if(board[i][j] === 1) drawTileTree();
+            if(board[i][j] === 2) drawTileStone();
         }
     }
     isBoardRendered = true;
 }
 
 function drawTileGrass(){
-    var grassTileDiv = document.createElement('div');
+    let grassTileDiv = document.createElement('div');
     grassTileDiv.className = "tile-grass";
     gameBoardDiv.appendChild(grassTileDiv);
 }
 
 function drawTileTree(){
-    var treeTileDiv = document.createElement('div');
+    let treeTileDiv = document.createElement('div');
     treeTileDiv.className = "tile-tree";
+    gameBoardDiv.appendChild(treeTileDiv);
+}
+
+function drawTileStone(){
+    let treeTileDiv = document.createElement('div');
+    treeTileDiv.className = "tile-stone";
     gameBoardDiv.appendChild(treeTileDiv);
 }

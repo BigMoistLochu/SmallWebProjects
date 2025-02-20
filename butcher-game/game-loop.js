@@ -1,7 +1,7 @@
 import { drawBoard } from './game-board.js';
 
 
-function gameLoop(timestamp) { // timestamp przekazywany automatycznie
+function gameLoop(timestamp) {
     update();
     draw();
 
@@ -9,7 +9,7 @@ function gameLoop(timestamp) { // timestamp przekazywany automatycznie
 }
 
 function update() {
-    console.log("Update ruchu postaci"); // Możesz tu dodać ruch postaci
+    console.log("Update ruchu postaci");
 }
 
 function draw() {
