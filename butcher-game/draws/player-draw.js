@@ -1,16 +1,12 @@
 import { players } from "../cache/PersistentDataContainer.js";
 
+const canvas = document.getElementById("playerDraw");
+const ctx = canvas.getContext("2d");
+const x = canvas.width = 64;
+const y = canvas.height = 64;
+const spriteSheet = new Image();
+spriteSheet.src = "./assets/images/player-01-walk.png";
 
 export function drawPlayers(){
-
-    console.log(players);
-    //narysuj playerow z listy players, ich x,y itp...
-
-    // for (let i = 0; i < board.length; i++) {
-    //     for (let j = 0; j < board[i].length; j++) {
-    //         if(board[i][j] === 0) drawTileGrass();
-    //         if(board[i][j] === 1) drawTileTree();
-    //         if(board[i][j] === 2) drawTileStone();
-    //     }
-    // }
+    ctx.drawImage(spriteSheet, 0, 0, x, y);
 }

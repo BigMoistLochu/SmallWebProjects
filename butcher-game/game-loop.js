@@ -15,7 +15,7 @@ function update() {
 
 function draw() {
     drawBoard();
-    // drawPlayers();
+    drawPlayers();
 }
 
 function initEvents(){
