@@ -1,5 +1,6 @@
-import { drawBoard } from './game-board.js';
-
+import { drawBoard } from './draws/game-board-draw.js';
+import {drawPlayers} from "./draws/player-draw.js";
+import { playerKeyboardController } from "./eventListeners/player-controller-listener.js";
 
 function gameLoop(timestamp) {
     update();
@@ -14,7 +15,16 @@ function update() {
 
 function draw() {
     drawBoard();
+    // drawPlayers();
 }
 
+function initEvents(){
+    playerKeyboardController()
+}
+
+
+
+
+initEvents();
 // Start gry
 requestAnimationFrame(gameLoop);

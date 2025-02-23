@@ -8,26 +8,26 @@ export class Player {
     }
 
     moveRight() {
-        if (!this.canMove()) return;
+        if (!this.#canMove()) return;
         this.x += 1;
     }
 
     moveLeft() {
-        if (!this.canMove()) return;
+        if (!this.#canMove()) return;
         this.x -= 1;
     }
 
     moveUp() {
-        if (!this.canMove()) return;
+        if (!this.#canMove()) return;
         this.y += 1;
     }
 
     moveDown() {
-        if (!this.canMove()) return;
+        if (!this.#canMove()) return;
         this.y -= 1;
     }
 
-    canMove(){
+    #canMove(){
         return this.x > 1 && this.y > 1;
     }
 
