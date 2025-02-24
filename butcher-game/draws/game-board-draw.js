@@ -1,6 +1,4 @@
-const gameBoardDiv  = document.getElementById("game-board");
-var isBoardRendered = false;
-
+import { gameBoardCanvas,tileSize,mapPath } from "../cache/PersistentDataContainer.js";
 const board = [
     [2 , 2 , 2 , 2 , 2, 2 , 2 , 2, 2 , 2],
     [2 , 0 , 1 , 0 , 1, 0 , 1 , 1, 0 , 2],
@@ -13,35 +11,36 @@ const board = [
     [2 , 0 , 0 , 0 , 1, 0 , 1 , 1, 0 , 2],
     [2 , 2 , 2 , 2 , 2, 2 , 2 , 2 , 2 ,2]
 ];
+const mapImage = createMapImage();
+const map = gameBoardCanvas.getContext("2d");
 
+export function drawBoardTest(){
+    for (let row = 0; row < board.length; row++) {
+        for (let column = 0; column < board[row].length; column++) {
 
-export function drawBoard(){
-    if(isBoardRendered) return;
+            let tileId = board[row][column];
+            let tilePosition = getTilePositionXYById(tileId);
+            if(tilePosition === null) continue;
 
-    for (let i = 0; i < board.length; i++) {
-        for (let j = 0; j < board[i].length; j++) {
-            if(board[i][j] === 0) drawTileGrass();
-            if(board[i][j] === 1) drawTileTree();
-            if(board[i][j] === 2) drawTileStone();
+            const [tileX, tileY] = tilePosition;
+
+            map.drawImage(mapImage,
+                tileX * tileSize,tileY * tileSize,tileSize,tileSize,  //Image draw
+                column * tileSize, row * tileSize,tileSize,tileSize); //Canvas draw
         }
     }
-    isBoardRendered = true;
 }
 
-function drawTileGrass(){
-    let grassTileDiv = document.createElement('div');
-    grassTileDiv.className = "tile-grass";
-    gameBoardDiv.appendChild(grassTileDiv);
+
+function getTilePositionXYById(id){
+    if(!Number.isInteger(id)) throw new Error("ID musi być liczbą całkowitą!");
+    if(id === 0) return [1,1];
+    if(id === 1) return [0,0];
+    else return null;
 }
 
-function drawTileTree(){
-    let treeTileDiv = document.createElement('div');
-    treeTileDiv.className = "tile-tree";
-    gameBoardDiv.appendChild(treeTileDiv);
-}
-
-function drawTileStone(){
-    let treeTileDiv = document.createElement('div');
-    treeTileDiv.className = "tile-stone";
-    gameBoardDiv.appendChild(treeTileDiv);
+function createMapImage(){
+    const mapImage = new Image();
+    mapImage.src = mapPath;
+    return mapImage;
 }

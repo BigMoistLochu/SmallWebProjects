@@ -1,6 +1,7 @@
-import { drawBoard } from './draws/game-board-draw.js';
+import {drawBoardTest} from './draws/game-board-draw.js';
 import {drawPlayers} from "./draws/player-draw.js";
 import { playerKeyboardController } from "./eventListeners/player-controller-listener.js";
+import {gameBoardCanvas} from "./cache/PersistentDataContainer.js";
 
 function gameLoop(timestamp) {
     update();
@@ -14,16 +15,14 @@ function update() {
 }
 
 function draw() {
-    drawBoard();
+    gameBoardCanvas.getContext("2d").clearRect(0, 0, gameBoardCanvas.width, gameBoardCanvas.height); // Czyścimy ekran
     drawPlayers();
+    drawBoardTest();
 }
 
 function initEvents(){
     playerKeyboardController()
 }
-
-
-
 
 initEvents();
 // Start gry
