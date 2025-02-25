@@ -16,8 +16,8 @@ function update() {
 
 function draw() {
     gameBoardCanvas.getContext("2d").clearRect(0, 0, gameBoardCanvas.width, gameBoardCanvas.height); // Czyścimy ekran
-    drawPlayers();
     drawBoardTest();
+    drawPlayers();
 }
 
 function initEvents(){

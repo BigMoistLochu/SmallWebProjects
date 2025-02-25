@@ -36,7 +36,7 @@ function getTilePositionXYById(id){
     if(!Number.isInteger(id)) throw new Error("ID musi być liczbą całkowitą!");
     if(id === 0) return [1,1];
     if(id === 1) return [0,0];
-    else return null;
+    else return [0,0];
 }
 
 function createMapImage(){

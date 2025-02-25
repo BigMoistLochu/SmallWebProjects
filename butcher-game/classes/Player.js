@@ -3,8 +3,8 @@ export class Player {
     constructor(uuid, name) {
         this.uuid = uuid;
         this.name = name;
-        this.x = 2;
-        this.y = 2;
+        this.x = 1;
+        this.y = 1;
     }
 
     moveRight() {
@@ -19,16 +19,17 @@ export class Player {
 
     moveUp() {
         if (!this.#canMove()) return;
-        this.y += 1;
+        this.y -= 1;
     }
 
     moveDown() {
         if (!this.#canMove()) return;
-        this.y -= 1;
+        this.y += 1;
     }
 
     #canMove(){
-        return this.x > 1 && this.y > 1;
+        if(this.x >= 0 && this.y >= 0) return true;
+        return false;
     }
 
 
