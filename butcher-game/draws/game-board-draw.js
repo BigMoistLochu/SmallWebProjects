@@ -14,7 +14,7 @@ const board = [
 const mapImage = createMapImage();
 const map = gameBoardCanvas.getContext("2d");
 
-export function drawBoardTest(){
+export function drawBoard(){
     for (let row = 0; row < board.length; row++) {
         for (let column = 0; column < board[row].length; column++) {
 
