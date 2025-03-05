@@ -1,6 +1,10 @@
-import {tileSize} from "../cache/PersistentDataContainer";
+import {tileSize} from "../cache/PersistentDataContainer.js";
 
-class GameBoard {
+export class GameBoard {
+
+    #mapImage;
+
+    #canvas;
 
     #board = [
         [2 , 2 , 2 , 2 , 2, 2 , 2 , 2, 2 , 2],
@@ -15,27 +19,37 @@ class GameBoard {
         [2 , 2 , 2 , 2 , 2, 2 , 2 , 2 , 2 ,2]
     ];
 
-    #canvas;
-
     constructor(canvas) {
        this.#canvas = canvas.getContext("2d");
+
+       if(this.#mapImage === undefined || this.#mapImage === null){
+           this.#mapImage = new Image();
+           this.#mapImage.src = "./assets/images/map.png";
+       }
     }
 
     drawBoard(){
-        for (let row = 0; row < board.length; row++) {
-            for (let column = 0; column < board[row].length; column++) {
+        for (let row = 0; row < this.#board.length; row++) {
+            for (let column = 0; column < this.#board[row].length; column++) {
 
-                let tileId = board[row][column];
-                let tilePosition = getTilePositionXYById(tileId);
+                let tileId = this.#board[row][column];
+                let tilePosition = this.#getTilePositionXYById(tileId);
                 if(tilePosition === null) continue;
 
                 const [tileX, tileY] = tilePosition;
 
-                this.#canvas.drawImage(mapImage,
+                this.#canvas.drawImage(this.#mapImage,
                     tileX * tileSize,tileY * tileSize,tileSize,tileSize,  //Image draw
                     column * tileSize, row * tileSize,tileSize,tileSize); //Canvas draw
             }
         }
+    }
+
+    #getTilePositionXYById(id){
+        if(!Number.isInteger(id)) throw new Error("ID musi być liczbą całkowitą!");
+        if(id === 0) return [1,1];
+        if(id === 1) return [0,0];
+        else return [0,0];
     }
 
 
