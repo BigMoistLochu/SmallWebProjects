@@ -1,11 +1,12 @@
-import {drawBoard} from './draws/game-board-draw.js';
 import {drawPlayers} from "./draws/player-draw.js";
 import { playerKeyboardController } from "./eventListeners/player-controller-listener.js";
+import {gameBoardCanvas} from "./cache/PersistentDataContainer.js";
 import {GameBoard} from "./classes/GameBoard.js";
 
+const canvas = document.getElementById("game-board").getContext("2d");
+const gameBoard = new GameBoard();
 
-const gameBoardCanvas = document.getElementById("game-board");
-const gameBoard = new GameBoard(gameBoardCanvas);
+
 
 function gameLoop(timestamp) {
     update();
@@ -16,12 +17,11 @@ function gameLoop(timestamp) {
 
 function update() {
     console.log("Update ruchu postaci");
-
 }
 
 function draw() {
-    gameBoardCanvas.getContext("2d").clearRect(0, 0, gameBoardCanvas.width, gameBoardCanvas.height);
-    gameBoard.drawBoard();
+    canvas.clearRect(0, 0, gameBoardCanvas.width, gameBoardCanvas.height);
+    gameBoard.drawBoard(canvas);
     drawPlayers();
 }
 
@@ -29,6 +29,7 @@ function initEvents(){
     playerKeyboardController()
 }
 
+//-----DONT OVERRIDE THIS:
 initEvents();
 // Start gry
 requestAnimationFrame(gameLoop);

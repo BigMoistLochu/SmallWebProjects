@@ -4,8 +4,6 @@ export class GameBoard {
 
     #mapImage;
 
-    #canvas;
-
     #board = [
         [2 , 2 , 2 , 2 , 2, 2 , 2 , 2, 2 , 2],
         [2 , 0 , 1 , 0 , 1, 0 , 1 , 1, 0 , 2],
@@ -19,16 +17,14 @@ export class GameBoard {
         [2 , 2 , 2 , 2 , 2, 2 , 2 , 2 , 2 ,2]
     ];
 
-    constructor(canvas) {
-       this.#canvas = canvas.getContext("2d");
-
+    constructor() {
        if(this.#mapImage === undefined || this.#mapImage === null){
            this.#mapImage = new Image();
            this.#mapImage.src = "./assets/images/map.png";
        }
     }
 
-    drawBoard(){
+    drawBoard(ctx){
         for (let row = 0; row < this.#board.length; row++) {
             for (let column = 0; column < this.#board[row].length; column++) {
 
@@ -38,7 +34,7 @@ export class GameBoard {
 
                 const [tileX, tileY] = tilePosition;
 
-                this.#canvas.drawImage(this.#mapImage,
+                ctx.drawImage(this.#mapImage,
                     tileX * tileSize,tileY * tileSize,tileSize,tileSize,  //Image draw
                     column * tileSize, row * tileSize,tileSize,tileSize); //Canvas draw
             }

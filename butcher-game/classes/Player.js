@@ -1,10 +1,19 @@
+
+
 export class Player {
+
+
 
     constructor(uuid, name) {
         this.uuid = uuid;
         this.name = name;
         this.x = 1;
         this.y = 1;
+        if(this.image === undefined || this.image === null){
+            const playerImage = new Image();
+            playerImage.src = "./assets/images/character.png";
+            this.image = playerImage;
+        }
     }
 
     moveRight() {
