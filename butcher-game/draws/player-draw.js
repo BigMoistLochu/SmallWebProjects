@@ -1,10 +1,8 @@
-import {gameBoardCanvas,tileSize,players} from "../cache/PersistentDataContainer.js";
+import {players} from "../cache/PersistentDataContainer.js";
 
-const playerCanvas = gameBoardCanvas.getContext("2d");
-const playerImage = new Image();
-playerImage.src = "./assets/images/character.png";
+const tileSize = 16;
 
-export function drawPlayers(){
+export function drawPlayers(ctx){
     let player = players[0];
-    playerCanvas.drawImage(player.image, player.x * tileSize, player.y * tileSize, tileSize, tileSize);
+    ctx.drawImage(player.image, player.x * tileSize, player.y * tileSize, tileSize, tileSize);
 }

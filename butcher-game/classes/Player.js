@@ -1,7 +1,4 @@
-
-
-export class Player {
-
+export class Player{
 
 
     constructor(uuid, name) {
@@ -9,6 +6,7 @@ export class Player {
         this.name = name;
         this.x = 1;
         this.y = 1;
+
         if(this.image === undefined || this.image === null){
             const playerImage = new Image();
             playerImage.src = "./assets/images/character.png";

@@ -1,8 +1,8 @@
-import {tileSize} from "../cache/PersistentDataContainer.js";
-
-export class GameBoard {
+export class GameBoard{
 
     #mapImage;
+
+    #tileSize = 16;
 
     #board = [
         [2 , 2 , 2 , 2 , 2, 2 , 2 , 2, 2 , 2],
@@ -18,7 +18,7 @@ export class GameBoard {
     ];
 
     constructor() {
-       if(this.#mapImage === undefined || this.#mapImage === null){
+        if(this.#mapImage === undefined || this.#mapImage === null){
            this.#mapImage = new Image();
            this.#mapImage.src = "./assets/images/map.png";
        }
@@ -35,8 +35,8 @@ export class GameBoard {
                 const [tileX, tileY] = tilePosition;
 
                 ctx.drawImage(this.#mapImage,
-                    tileX * tileSize,tileY * tileSize,tileSize,tileSize,  //Image draw
-                    column * tileSize, row * tileSize,tileSize,tileSize); //Canvas draw
+                    tileX * this.#tileSize,tileY * this.#tileSize,this.#tileSize,this.#tileSize,  //Image draw
+                    column * this.#tileSize, row * this.#tileSize,this.#tileSize,this.#tileSize); //Canvas draw
             }
         }
     }
