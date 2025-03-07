@@ -3,9 +3,10 @@ import { playerKeyboardController } from "./eventListeners/player-controller-lis
 import {GameBoard} from "./classes/GameBoard.js";
 
 
-const canvas = document.getElementById("game-board").getContext("2d");
-canvas.height = 600;
-canvas.width = 600;
+const canvas = document.getElementById("game-board"); // Pobieramy element canvas
+const ctx = canvas.getContext("2d"); // Pobieramy kontekst rysowania
+canvas.width = 600;  // Ustawiamy szerokość na elemencie canvas
+canvas.height = 600; // Ustawiamy wysokość na elemencie canvas
 const gameBoard = new GameBoard();
 
 
@@ -19,9 +20,9 @@ function gameLoop(timestamp) {
 function update() {}
 
 function draw() {
-    canvas.clearRect(0, 0, canvas.width, canvas.height);
-    gameBoard.drawBoard(canvas);
-    drawPlayers(canvas);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    gameBoard.drawBoard(ctx);
+    drawPlayers(ctx);
 }
 
 function initEvents(){

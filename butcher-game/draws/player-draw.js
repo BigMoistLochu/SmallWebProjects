@@ -1,6 +1,6 @@
 import {players} from "../cache/PersistentDataContainer.js";
 
-const tileSize = 16;
+const tileSize = 32;
 
 export function drawPlayers(ctx){
     let player = getPlayerByUUID(localStorage.getItem("jwt"));

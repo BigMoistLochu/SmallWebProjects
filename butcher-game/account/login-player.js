@@ -13,13 +13,13 @@ function loginPlayer(){
     console.log(login);
     console.log(password);
     if(isPlayerValid(login,password)){
-        if(localStorage.getItem("jwt")){
+
+        if(localStorage.getItem("jwt")) {
             localStorage.removeItem("jwt")
-            console.log("jwt zostalo usuniete to juz bylo w przegladarce")
-        }else {
-            localStorage.setItem("jwt",getPlayerByLogin(login).UUID)
+            console.log("jwt zostalo usuniete to juz bylo w przegladarce");
         }
 
+        localStorage.setItem("jwt",getPlayerByLogin(login).UUID);
         window.document.location.href = "game.html";
     }else{
         alert("Bledne logowanie");

@@ -2,7 +2,7 @@ export class GameBoard{
 
     #mapImage;
 
-    #tileSize = 16;
+    #tileSize = 32;
 
     #board = [
         [2 , 2 , 2 , 2 , 2, 2 , 2 , 2, 2 , 2],
@@ -20,7 +20,7 @@ export class GameBoard{
     constructor() {
         if(this.#mapImage === undefined || this.#mapImage === null){
            this.#mapImage = new Image();
-           this.#mapImage.src = "./assets/images/map.png";
+           this.#mapImage.src = "./assets/images/grass.png";
        }
     }
 
@@ -29,24 +29,14 @@ export class GameBoard{
             for (let column = 0; column < this.#board[row].length; column++) {
 
                 let tileId = this.#board[row][column];
-                let tilePosition = this.#getTilePositionXYById(tileId);
-                if(tilePosition === null) continue;
-
-                const [tileX, tileY] = tilePosition;
-
                 ctx.drawImage(this.#mapImage,
-                    tileX * this.#tileSize,tileY * this.#tileSize,this.#tileSize,this.#tileSize,  //Image draw
+                    0,0,this.#tileSize,this.#tileSize,  //Image draw
                     column * this.#tileSize, row * this.#tileSize,this.#tileSize,this.#tileSize); //Canvas draw
             }
         }
     }
 
-    #getTilePositionXYById(id){
-        if(!Number.isInteger(id)) throw new Error("ID musi być liczbą całkowitą!");
-        if(id === 0) return [1,1];
-        if(id === 1) return [0,0];
-        else return [0,0];
-    }
+
 
 
 

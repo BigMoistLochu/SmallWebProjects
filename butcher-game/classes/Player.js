@@ -9,7 +9,7 @@ export class Player{
 
         if(this.image === undefined || this.image === null){
             const playerImage = new Image();
-            playerImage.src = "./assets/images/character.png";
+            playerImage.src = "./assets/images/kotek.png";
             this.image = playerImage;
         }
     }
