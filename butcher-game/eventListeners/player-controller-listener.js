@@ -1,5 +1,10 @@
-import {players} from "../cache/PersistentDataContainer.js";
+import {players,getPlayerByUUID} from "../cache/PersistentDataContainer.js";
+
+
 export function playerKeyboardController(){
+
+    const player = getPlayerByUUID(localStorage.getItem("jwt"));
+
     document.addEventListener("keydown", (event) => {
 
         if (["ArrowUp", "ArrowDown"].includes(event.key)) {
@@ -7,13 +12,13 @@ export function playerKeyboardController(){
         }
 
         if (event.key === "ArrowUp") {
-            players[0].moveUp();
+            player.moveUp();
         } else if (event.key === "ArrowDown") {
-            players[0].moveDown();
+            player.moveDown();
         } else if (event.key === "ArrowLeft") {
-            players[0].moveLeft();
+            player.moveLeft();
         } else if (event.key === "ArrowRight") {
-            players[0].moveRight();
+            player.moveRight();
         }
     });
 }
