@@ -1,4 +1,4 @@
-import { Player } from "../classes/Player.js";
+import { Player } from "./classes/Player.js";
 
 const player1 = new Player("hash1","Konrad");
 const player2 = new Player("hash2","Pawel");
@@ -8,5 +8,9 @@ export const players = [player1,player2,player3];
 
 export function getPlayerByUUID(UUID){
     return players.find((credential)=> credential.uuid === UUID);
+}
+
+export function getAllPlayers(){
+    return players;
 }
 

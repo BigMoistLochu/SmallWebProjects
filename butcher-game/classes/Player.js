@@ -1,5 +1,6 @@
 export class Player{
 
+    #tileSize = 32;
 
     constructor(uuid, name) {
         this.uuid = uuid;
@@ -12,6 +13,10 @@ export class Player{
             playerImage.src = "./assets/images/kotek.png";
             this.image = playerImage;
         }
+    }
+
+    draw(ctx){
+        ctx.drawImage(this.image, this.x * this.#tileSize, this.y * this.#tileSize, this.#tileSize, this.#tileSize);
     }
 
     moveRight() {

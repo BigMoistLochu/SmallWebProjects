@@ -1,6 +1,6 @@
-import {drawPlayers} from "./draws/player-draw.js";
 import { playerKeyboardController } from "./eventListeners/player-controller-listener.js";
 import {GameBoard} from "./classes/GameBoard.js";
+import {getAllPlayers} from "./PersistentDataContainer.js";
 
 
 const canvas = document.getElementById("game-board"); // Pobieramy element canvas
@@ -21,8 +21,8 @@ function update() {}
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    gameBoard.drawBoard(ctx);
-    drawPlayers(ctx);
+    gameBoard.draw(ctx);
+    getAllPlayers().forEach((player) => player.draw(ctx));
 }
 
 function initEvents(){

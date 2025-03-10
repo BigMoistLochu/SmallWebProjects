@@ -11,7 +11,19 @@
 <body>
 <h1>Gierka IO</h1>
 <canvas id = "game-board"></canvas>
+<button id="logout">Log Out!</button>
+
+
+
+
+
+
 <script type="module" src="./game-loop.js"></script>
+<script>
+    window.document.getElementById("logout").addEventListener("click", () => {
+    localStorage.removeItem("jwt");
+    window.document.location.href = "index.html";
+})</script>
 </body>
 
 </html>

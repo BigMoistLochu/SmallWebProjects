@@ -1,17 +1,13 @@
-
 const temporaryCache = [
     {login: "login123", password: "haslo123", UUID: "hash2"},
     {login: "login12345", password: "haslo12345", UUID: "hash1"}
 ]
 
 
-
-function loginPlayer(){
+function authPlayer(){
     const login = document.getElementById("login").value;
     const password = document.getElementById("password").value;
 
-    console.log(login);
-    console.log(password);
     if(isPlayerValid(login,password)){
 
         if(localStorage.getItem("jwt")) {

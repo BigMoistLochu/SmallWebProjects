@@ -1,4 +1,4 @@
-import {players,getPlayerByUUID} from "../cache/PersistentDataContainer.js";
+import {getPlayerByUUID} from "../PersistentDataContainer.js";
 
 
 export function playerKeyboardController(){

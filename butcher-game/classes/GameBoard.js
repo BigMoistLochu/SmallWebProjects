@@ -24,7 +24,7 @@ export class GameBoard{
        }
     }
 
-    drawBoard(ctx){
+    draw(ctx){
         for (let row = 0; row < this.#board.length; row++) {
             for (let column = 0; column < this.#board[row].length; column++) {
 
