@@ -3,10 +3,12 @@ import {GameBoard} from "./classes/GameBoard.js";
 import {getAllPlayers} from "./PersistentDataContainer.js";
 
 
-const canvas = document.getElementById("game-board"); // Pobieramy element canvas
-const ctx = canvas.getContext("2d"); // Pobieramy kontekst rysowania
-canvas.width = 600;  // Ustawiamy szerokość na elemencie canvas
-canvas.height = 600; // Ustawiamy wysokość na elemencie canvas
+const canvas = document.getElementById("game-board");
+
+const ctx = canvas.getContext("2d");
+canvas.width = 600;
+canvas.height = 600;
+
 const gameBoard = new GameBoard();
 
 
@@ -29,7 +31,7 @@ function initEvents(){
     playerKeyboardController()
 }
 
-//-----DONT OVERRIDE THE CODE BELOW:
+//-----DONT OVERRIDE THIS CODE BELOW:
 initEvents();
 // Start gry
 requestAnimationFrame(gameLoop);

@@ -6,24 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Butcher Game</title>
     <link rel="stylesheet" href="assets/styles/board.css">
+    <link rel="stylesheet" href="assets/styles/game.css">
 </head>
 
 <body>
 <h1>Gierka IO</h1>
-<canvas id = "game-board"></canvas>
-<button id="logout">Log Out!</button>
+<div id="game-block">
+    <img id="game-screen" src="assets/images/screen.png" alt="game-screen">
+    <canvas id="game-board"></canvas>
+</div>
 
-
-
-
-
+<button onclick="logout()" id="logout">Log Out!</button>
 
 <script type="module" src="./game-loop.js"></script>
-<script>
-    window.document.getElementById("logout").addEventListener("click", () => {
-    localStorage.removeItem("jwt");
-    window.document.location.href = "index.html";
-})</script>
+<script src="services/AuthService.js"></script>
+<script> if(!isAuthenticated()) window.document.location.href = "index.html" </script>
 </body>
 
 </html>

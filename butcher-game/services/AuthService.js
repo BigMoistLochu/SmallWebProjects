@@ -3,24 +3,29 @@ const temporaryCache = [
     {login: "login12345", password: "haslo12345", UUID: "hash1"}
 ]
 
-
-function authPlayer(){
+function login(){
     const login = document.getElementById("login").value;
     const password = document.getElementById("password").value;
 
-    if(isPlayerValid(login,password)){
-
-        if(localStorage.getItem("jwt")) {
-            localStorage.removeItem("jwt")
-            console.log("jwt zostalo usuniete to juz bylo w przegladarce");
-        }
-
-        localStorage.setItem("jwt",getPlayerByLogin(login).UUID);
-        window.document.location.href = "game.html";
-    }else{
+    if(!isPlayerValid(login,password)) {
         alert("Bledne logowanie");
+        return;
     }
+
+    localStorage.setItem("jwt",getPlayerByLogin(login).UUID);
+    window.document.location.href = "game.html";
 }
+
+function logout(){
+    localStorage.removeItem("jwt");
+    window.document.location.href = "index.html";
+}
+
+function isAuthenticated() {
+    if(localStorage.getItem("jwt")) return true;
+    return false;
+}
+
 
 function getPlayerByLogin(login){
     return temporaryCache.find((player)=> player.login === login);

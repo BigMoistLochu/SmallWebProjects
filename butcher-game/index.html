@@ -6,11 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Butcher Game</title>
     <link rel="stylesheet" href="assets/styles/board.css">
-    <script>
-        if(localStorage.getItem("jwt")){
-        window.document.location.href = "game.html";
-        }
-    </script>
+    <script> if(localStorage.getItem("jwt")) window.document.location.href = "game.html"; </script>
 </head>
 
 <body>
@@ -19,10 +15,9 @@
     <input type="text" id="login" placeholder="type login">
     <label>Password:</label>
     <input type="text" id="password" placeholder="type password">
-    <button onclick="authPlayer()">Click me</button>
+    <button onclick="login()">Click me</button>
 
-
-    <script src="authorization/auth-player.js"></script>
+    <script src="services/AuthService.js"></script>
 </body>
 
 </html>

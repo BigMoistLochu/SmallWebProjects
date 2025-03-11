@@ -1,0 +1,16 @@
+#game-block {
+    position: relative; /* Ustawienie kontekstu dla elementów absolutnych */
+    width: 800px; /* Dopasuj do rozmiaru obrazu */
+    height: 600px;
+}
+
+#game-screen {
+
+}
+
+#game-board {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Zapobiega blokowaniu kliknięć przez canvas */
+}
